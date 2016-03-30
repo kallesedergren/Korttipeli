@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="Korttipeli.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Korttipeli"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="Background">
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/background.jpg"></ImageBrush>
+        </Grid.Background>
+
+        <Image x:Name="Deck"
+               HorizontalAlignment="Left" 
+               Height="235"
+               Margin="247,242,0,0" 
+               VerticalAlignment="Top" Width="170" 
+               RenderTransformOrigin="0.49,0.496" Source="Assets/deckback.png" Stretch="Fill"
+               IsTapEnabled="True"/>
+
+        <Image x:Name="Card"
+               HorizontalAlignment="Left" 
+               Height="235" 
+               Margin="835,175,0,0" 
+               VerticalAlignment="Top" Width="170" Source="Assets/ysi.png" Stretch="Fill"/>
+
+        <TextBlock x:Name="Rules" 
+        	HorizontalAlignment="Left" 
+        	Margin="753,437,0,0" 
+        	TextWrapping="Wrap" 
+        	VerticalAlignment="Top" 
+        	Height="162" Width="365" FontFamily="Segoe UI Light" Foreground="#FFDEDEDE" FontSize="48">
+        	<Run Text="Rule "/>
+        	<Run Text="attached "/>
+        	<Run Text="to the card"/>
+        </TextBlock>
+
+        <TextBlock x:Name="Hitler"
+        	HorizontalAlignment="Left" 
+        	Margin="169,69,0,0" 
+        	TextWrapping="Wrap" 
+        	VerticalAlignment="Top" 
+        	Height="138" Width="326" FontSize="96" Text="Hitler!" FontFamily="Segoe UI Light" FontStyle="Italic" Foreground="#FFDEDEDE"/>
+        
+        <Image x:Name="Shuffle" 
+               Source="Assets/Shuffle.jpg"
+               HorizontalAlignment="Left" 
+               Height="68" Margin="1003,24,0,0" 
+               VerticalAlignment="Top" Width="115"
+               IsTapEnabled="True"/>
+        
+        <Image x:Name="infoButton" 
+               HorizontalAlignment="Left" 
+               Height="100" 
+               Margin="1151,24,0,0" 
+               VerticalAlignment="Top" 
+               Width="100"/>
+        
+        <TextBlock x:Name="textBlock" 
+                   HorizontalAlignment="Left" 
+                   Margin="171,517,0,0" 
+                   TextWrapping="Wrap" 
+                   Text="Pick a Card" 
+                   VerticalAlignment="Top" 
+                   Height="82" Width="324" 
+                   FontFamily="Segoe UI Light" 
+                   FontSize="64" 
+                   Foreground="#FFDEDEDE"/>
+
+    </Grid>
+</Page>

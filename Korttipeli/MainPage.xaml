@@ -24,7 +24,7 @@
                HorizontalAlignment="Left" 
                Height="235" 
                Margin="835,175,0,0" 
-               VerticalAlignment="Top" Width="170" Source="Assets/ysi.png" Stretch="Fill"/>
+               VerticalAlignment="Top" Width="170" Source="Assets/Ruutu9.png" Stretch="Fill"/>
 
         <TextBlock x:Name="Rules" 
         	HorizontalAlignment="Left" 
@@ -42,7 +42,7 @@
         	Margin="169,69,0,0" 
         	TextWrapping="Wrap" 
         	VerticalAlignment="Top" 
-        	Height="138" Width="326" FontSize="96" Text="Hitler!" FontFamily="Segoe UI Light" FontStyle="Italic" Foreground="#FFDEDEDE"/>
+        	Height="138" Width="321" FontSize="96" Text="Hitler!" FontFamily="Segoe UI Light" FontStyle="Italic" Foreground="#FFDEDEDE"/>
         
         <Image x:Name="Shuffle" 
                Source="Assets/Shuffle.jpg"

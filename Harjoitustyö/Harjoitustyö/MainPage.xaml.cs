@@ -21,21 +21,41 @@ namespace Harjoitustyö
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public partial class MainPage : Page
     {
         Deck deck = new Deck();
 
         public MainPage()
         {
             this.InitializeComponent();
+            deck.Shuffle();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        public void image_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Card card = deck.dealCard();
-            string filePath = @"Assets/Ruutu10.png";
-            image.Source = new BitmapImage(new Uri(this.BaseUri, filePath));
+            try
+            {
+                string filePath = @"Assets/Images/" + card.getValue() + "_of_" + card.getSuit() + ".png";
+                string rulePath = @"Assets/Rules/" + card.getValue() + ".txt";
+                string readRules = File.ReadAllText(rulePath);
 
+                cardsUp.Source = new BitmapImage(new Uri(this.BaseUri, filePath));
+                rule.Text = readRules;
+
+            } catch (Exception)
+            {
+                cardsUp.Source = null; /* new BitmapImage(new Uri(this.BaseUri, "Assets/Images/deck.png")); */
+                rule.Text = "Pakka on juotu! ( ͡° ͜ʖ ͡°)";
+            }
+            
+        }
+
+        private void reset_Click(object sender, RoutedEventArgs e)
+        {
+            deck.Shuffle();
+            rule.Text = "";
+            cardsUp.Source = null;
         }
     }
 }

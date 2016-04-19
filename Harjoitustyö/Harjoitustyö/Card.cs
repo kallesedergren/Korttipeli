@@ -8,18 +8,29 @@ namespace Harjoitustyö
 {
     public class Card
     {
-        private string face;
-        private string suit;
+        private string Suit;
+        private string Value;
 
-        public Card(string cardFace, string cardSuit)
+        public Card(string values, string suits)
         {
-            face = cardFace;
-            suit = cardSuit;
+            Value = values;
+            Suit = suits;
+            
         }
 
         public override string ToString()
         {
-            return face + " of " + suit;
+            return Value + " of " + Suit;
+        }
+
+        public string getSuit()
+        {
+            return Suit;
+        }
+
+        public string getValue()
+        {
+            return Value;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Harjoitustyö
 {
+    
     public class Deck
     {
         private Card[] deck;
@@ -15,14 +16,14 @@ namespace Harjoitustyö
 
         public Deck()
         {
-            string[] faces = { "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
+            string[] values = { "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
             string[] suits = { "Hearts", "Clubs", "Diamonds", "Spades" };
 
             deck = new Card[MaxCards];
             currentCard = 0;
             ranNum = new Random();
             for (int count = 0; count < deck.Length; count++)
-                deck[count] = new Card(faces[count % 13], suits[count / 13]);
+                deck[count] = new Card(values[count % 13], suits[count / 13]);
         }
 
         public void Shuffle()

@@ -103,6 +103,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Player.cs" />
+    <Compile Include="Players.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +118,7 @@
     <Content Include="Assets\Images\Ace_of_Diamonds.png" />
     <Content Include="Assets\Images\Ace_of_Hearts.png" />
     <Content Include="Assets\Images\Ace_of_Spades.png" />
+    <Content Include="Assets\Images\Adolf.jpg" />
     <Content Include="Assets\Images\deck.png" />
     <Content Include="Assets\Images\Eight_of_Clubs.png" />
     <Content Include="Assets\Images\Eight_of_Diamonds.png" />

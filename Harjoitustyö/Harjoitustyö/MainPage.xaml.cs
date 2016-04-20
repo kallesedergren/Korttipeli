@@ -24,16 +24,35 @@ namespace Harjoitustyö
     public partial class MainPage : Page
     {
         Deck deck = new Deck();
+        List<Player> pelaajat;
+        int vuoro = 0;
 
         public MainPage()
         {
             this.InitializeComponent();
             deck.Shuffle();
+
+            pelaajat = new List<Player>();
+
+            pelaajat.Add(new Player { Name = "Hannes" });
+            pelaajat.Add(new Player { Name = "Marko" });
+            pelaajat.Add(new Player { Name = "Jesse" });
+            pelaajat.Add(new Player { Name = "Herbert" });
+
+            player1.Text = pelaajat.ElementAt(0).Name;
+            player2.Text = pelaajat.ElementAt(1).Name;
+            player3.Text = pelaajat.ElementAt(2).Name;
+            player4.Text = pelaajat.ElementAt(3).Name;
+
+            vuorossa.Text = "Vuorossa: " + pelaajat.ElementAt(vuoro).Name;
         }
 
         public void image_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Card card = deck.dealCard();
+            vuoro++;
+            if (vuoro >= pelaajat.Count) vuoro = 0; 
+            vuorossa.Text = "Vuorossa: " + pelaajat.ElementAt(vuoro).Name;
             try
             {
                 string filePath = @"Assets/Images/" + card.getValue() + "_of_" + card.getSuit() + ".png";
@@ -48,14 +67,28 @@ namespace Harjoitustyö
                 cardsUp.Source = null; /* new BitmapImage(new Uri(this.BaseUri, "Assets/Images/deck.png")); */
                 rule.Text = "Pakka on juotu! ( ͡° ͜ʖ ͡°)";
             }
-            
-        }
+
+           if (card.getValue().Equals("Four") || card.getValue().Equals("Five"))
+            {
+                hitler.Visibility = Visibility.Visible;
+            }
+            else
+            { 
+                hitler.Visibility = Visibility.Collapsed;
+            }
+                    
+}
 
         private void reset_Click(object sender, RoutedEventArgs e)
         {
             deck.Shuffle();
             rule.Text = "";
             cardsUp.Source = null;
+        }
+
+        private void kaytatauko_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            onkotauko.Visibility = Visibility.Collapsed;
         }
     }
 }

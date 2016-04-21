@@ -16,8 +16,8 @@ namespace Harjoitustyö
 
         public Deck()
         {
-            string[] values = { "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
-            string[] suits = { "Hearts", "Clubs", "Diamonds", "Spades" };
+            string[] values = { "ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king" };
+            string[] suits = { "hearts", "clubs", "diamonds", "spades" };
 
             deck = new Card[MaxCards];
             currentCard = 0;
@@ -51,5 +51,3 @@ namespace Harjoitustyö
         }
     }
 }
-
-

@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.ViewManagement;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -30,6 +31,10 @@ namespace Harjoitustyö
         public MainPage()
         {
             this.InitializeComponent();
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+            // Ikkunan koko
+            ApplicationView.PreferredLaunchViewSize = new Size(1280, 720);
+
             deck.Shuffle();
 
             pelaajat = new List<Player>();
@@ -50,7 +55,7 @@ namespace Harjoitustyö
         public void image_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Card card = deck.dealCard();
-            vuoro++;
+            if (card!=null) vuoro++;
             if (vuoro >= pelaajat.Count) vuoro = 0; 
             vuorossa.Text = "Vuorossa: " + pelaajat.ElementAt(vuoro).Name;
             try
@@ -62,20 +67,22 @@ namespace Harjoitustyö
                 cardsUp.Source = new BitmapImage(new Uri(this.BaseUri, filePath));
                 rule.Text = readRules;
 
+                if (card.getValue().Equals("4") || card.getValue().Equals("5"))
+                {
+                    hitler.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    hitler.Visibility = Visibility.Collapsed;
+                }
+
             } catch (Exception)
             {
-                cardsUp.Source = null; /* new BitmapImage(new Uri(this.BaseUri, "Assets/Images/deck.png")); */
-                rule.Text = "Pakka on juotu! ( ͡° ͜ʖ ͡°)";
+                cardsUp.Source = new BitmapImage(new Uri(this.BaseUri, "Assets/Images/Adolf.jpg"));
+                rule.Text = "Pakka on juotu!";
             }
 
-           if (card.getValue().Equals("Four") || card.getValue().Equals("Five"))
-            {
-                hitler.Visibility = Visibility.Visible;
-            }
-            else
-            { 
-                hitler.Visibility = Visibility.Collapsed;
-            }
+            
                     
 }
 

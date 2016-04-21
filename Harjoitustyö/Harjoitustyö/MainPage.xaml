@@ -5,26 +5,51 @@
     xmlns:local="using:Harjoitustyö"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Width="1280" Height="720">
 
     <Grid>
-        <Image x:Name="cardsUp" HorizontalAlignment="Left" Height="316" VerticalAlignment="Top" Width="212" Margin="896,134,0,0"/>
-        <TextBlock x:Name="rule" HorizontalAlignment="Left" Margin="894.986,498.402,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.404,0.55" UseLayoutRounding="False" Width="269.721" d:LayoutRounding="Auto" Height="60.651">
-            <TextBlock.RenderTransform>
-                <CompositeTransform Rotation="-0.532" TranslateX="0.03" TranslateY="0.241"/>
-            </TextBlock.RenderTransform>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/Images/background.png"/>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Image x:Name="cardsUp" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Height="450" Width="300" />
+
+        <TextBlock x:Name="rule" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" UseLayoutRounding="False" Width="400" d:LayoutRounding="Auto" Height="65" TextAlignment="Center" FontFamily="Segoe UI Light" FontSize="36" Foreground="#FFBBBBBB" FontWeight="SemiLight">
         </TextBlock>
-        <Image x:Name="deckFull" Source="Assets/Images/deck.png"  IsTapEnabled="True" Tapped="image_Tapped" HorizontalAlignment="Left" Height="215" Margin="559,235,0,0" VerticalAlignment="Top" Width="155"/>
-        <Button x:Name="reset" Content="Button" HorizontalAlignment="Left" Margin="800,25,0,0" VerticalAlignment="Top" Width="145" Height="35" Click="reset_Click"/>
-        <Image x:Name="hitler" Visibility="Collapsed" Source="Assets/Images/Adolf.jpg"  HorizontalAlignment="Left" Height="196" Margin="73,25,0,0" VerticalAlignment="Top" Width="155"/>
-        <TextBlock x:Name="vuorossa" HorizontalAlignment="Left" Margin="73,367,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="83" Width="122"/>
+        <Image x:Name="deckFull" Grid.Column="0" Grid.Row="1" Source="Assets/Images/deck.png" IsTapEnabled="True" Tapped="image_Tapped" VerticalAlignment="Center" Height="450" Width="300"/>
+
+        <Button x:Name="rules" Grid.Column="3" Grid.Row="0" Content="SÄÄNNÖT" HorizontalAlignment="Left" Width="190" Height="50" Margin="-40,0,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB"></Button>
+        <Button x:Name="reset" Grid.Column="3" Grid.Row="0" Content="UUSI KIERROS" HorizontalAlignment="Right" Width="190" Height="50" Margin="40,0" Click="reset_Click" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB"/>
+
+        <TextBlock x:Name="vuorossa" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="0,10" Height="40" Width="220" FontFamily="Segoe UI Light" FontSize="22" Foreground="#FFBBBBBB" TextAlignment="Center"/>
+
+        <StackPanel Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" Margin="30,20" Background="#33F0F8FF" Width="280" BorderBrush="#FFBBBBBB" BorderThickness="2" CornerRadius="10">
+            <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="50,30,0,20" Width="120" Height="50" Text="Pelaajat" Foreground="#FFBBBBBB" FontFamily="Segoe UI Light" FontSize="28"/>
+            <TextBlock x:Name="player1" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="100" Height="40" Margin="50,0" Foreground="#FFBBBBBB" FontSize="20" FontFamily="Segoe UI Light"/>
+            <TextBlock x:Name="player2" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="100" Height="40" Margin="50,0" Foreground="#FFBBBBBB" FontSize="20" FontFamily="Segoe UI Light"/>
+            <TextBlock x:Name="player3" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="100" Height="40" Margin="50,0" Foreground="#FFBBBBBB" FontSize="20" FontFamily="Segoe UI Light"/>
+            <TextBlock x:Name="player4" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="100" Height="40" Margin="50,0" Foreground="#FFBBBBBB" FontSize="20" FontFamily="Segoe UI Light"/>
+        </StackPanel>
+
         <TextBlock x:Name="onkotauko" Visibility="Collapsed" HorizontalAlignment="Left" Margin="200,351,0,0" TextWrapping="Wrap" Text="Tauko käytettävissä" VerticalAlignment="Top" Height="29"/>
         <TextBlock x:Name="kaytatauko" HorizontalAlignment="Left" Margin="336,484,0,0" TextWrapping="Wrap" Text="Käytä tauko" VerticalAlignment="Top" Tapped="kaytatauko_Tapped"/>
-        <TextBlock x:Name="player1" HorizontalAlignment="Left" Margin="168,608,0,0" TextWrapping="Wrap" Text="" Width="60" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="player2" HorizontalAlignment="Left" Margin="260,608,0,0" TextWrapping="Wrap" Text="" Width="60" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="player3" HorizontalAlignment="Left" Margin="336,608,0,0" TextWrapping="Wrap" Text="" Width="60" Height="20" VerticalAlignment="Top"/>
-        <TextBlock x:Name="player4" HorizontalAlignment="Left" Margin="401,608,0,0" TextWrapping="Wrap" Text="" Width="60" Height="20" VerticalAlignment="Top"/>
-
+        
+        
+        
+        
+        <Image x:Name="hitler" Grid.Column="1" Grid.Row="0" Visibility="Collapsed" Source="Assets/Images/hitler.jpg" Height="80" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
 
     </Grid>

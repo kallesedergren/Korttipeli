@@ -38,6 +38,11 @@ namespace Harjoitustyö
             }
         }
 
+        public bool isEmpty()
+        {
+            return deck.Any();
+        }
+
         public Card dealCard()
         {
             if (currentCard < deck.Length)

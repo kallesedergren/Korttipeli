@@ -10,9 +10,8 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Assets/Images/background.png"/>
+            <ImageBrush ImageSource="Assets/Images/background3.jpg"/>
         </Grid.Background>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="450"/>
@@ -25,35 +24,68 @@
         </Grid.RowDefinitions>
         
         <Image x:Name="cardsUp" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Height="450" Width="300" />
-
-        <TextBlock x:Name="rule" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" UseLayoutRounding="False" Width="400" d:LayoutRounding="Auto" Height="65" TextAlignment="Center" FontFamily="Segoe UI Light" FontSize="36" Foreground="#FFBBBBBB" FontWeight="SemiLight">
+        <TextBlock x:Name="rule" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" UseLayoutRounding="False" Width="400" d:LayoutRounding="Auto" Height="65" TextAlignment="Center" FontFamily="Segoe UI Light" FontSize="28" Foreground="#FFBBBBBB" FontWeight="SemiLight">
         </TextBlock>
         <Image x:Name="deckFull" Grid.Column="0" Grid.Row="1" Source="Assets/Images/deck.png" IsTapEnabled="True" Tapped="image_Tapped" VerticalAlignment="Center" Height="450" Width="300"/>
-
-        <Button x:Name="rules" Grid.Column="3" Grid.Row="0" Content="SÄÄNNÖT" HorizontalAlignment="Left" Width="190" Height="50" Margin="-40,0,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB"></Button>
-        <Button x:Name="reset" Grid.Column="3" Grid.Row="0" Content="UUSI KIERROS" HorizontalAlignment="Right" Width="190" Height="50" Margin="40,0" Click="reset_Click" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB"/>
-
-        <TextBlock x:Name="vuorossa" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="0,10" Height="40" Width="220" FontFamily="Segoe UI Light" FontSize="22" Foreground="#FFBBBBBB" TextAlignment="Center"/>
-
-        <StackPanel Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" Margin="30,20" Background="#33F0F8FF" Width="280" BorderBrush="#FFBBBBBB" BorderThickness="2" CornerRadius="10">
-            <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="50,30,0,20" Width="120" Height="50" Text="Pelaajat" Foreground="#FFBBBBBB" FontFamily="Segoe UI Light" FontSize="28"/>
-            <TextBlock x:Name="player1" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="100" Height="40" Margin="50,0" Foreground="#FFBBBBBB" FontSize="20" FontFamily="Segoe UI Light"/>
-            <TextBlock x:Name="player2" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="100" Height="40" Margin="50,0" Foreground="#FFBBBBBB" FontSize="20" FontFamily="Segoe UI Light"/>
-            <TextBlock x:Name="player3" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="100" Height="40" Margin="50,0" Foreground="#FFBBBBBB" FontSize="20" FontFamily="Segoe UI Light"/>
-            <TextBlock x:Name="player4" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="100" Height="40" Margin="50,0" Foreground="#FFBBBBBB" FontSize="20" FontFamily="Segoe UI Light"/>
+        <StackPanel x:Name="huoraPanel" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Margin="30,20" Background="#E5F0F8FF" Width="300" BorderBrush="#FFBBBBBB" BorderThickness="2" CornerRadius="10" Visibility="Collapsed">
+            <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,20,0,0" Width="150" Height="50" Text="Anna huora" Foreground="#FFBBBBBB" FontFamily="Segoe UI Light" FontSize="28" TextAlignment="Center"/>
+            <ListView x:Name="huoraList" Margin="0,0" Width="260" Height="310" HorizontalAlignment="Center" ItemClick="huoraList_ItemClick"></ListView>
+            <Button x:Name="annaHuora" Content="ANNA" HorizontalAlignment="Center" Width="190" Height="50" Margin="0,10,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="AliceBlue" Click="annaHuora_Click" Background="#FFBBBBBB" BorderBrush="#FFBBBBBB"></Button>
         </StackPanel>
-
+        <Button x:Name="backButton" Grid.Column="0" Grid.Row="0" Content="PUHDISTUS" HorizontalAlignment="Left" Width="190" Height="50" Margin="40,0,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB" Background="#66000000" Click="backButton_Click"></Button>
+        
+        <Button x:Name="rules" Grid.Column="2" Grid.Row="0" Content="SÄÄNNÖT" HorizontalAlignment="Left" Width="190" Height="50" Margin="-40,0,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB" Click="rules_Click" Background="#4C000000"></Button>
+        <Button x:Name="reset" Grid.Column="2" Grid.Row="0" Content="UUSI KIERROS" HorizontalAlignment="Right" Width="190" Height="50" Margin="40,0" Click="reset_Click" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB" Background="#4C000000"/>
+        <TextBlock x:Name="vuorossa" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="0,10" Height="40" Width="220" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FFBBBBBB" TextAlignment="Center"/>
+        <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Margin="30,20" Background="#33636363" Width="300" BorderBrush="#FFBBBBBB" BorderThickness="2" CornerRadius="10">
+            <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,20,0,0" Width="120" Height="50" Text="Pelaajat" Foreground="#FFBBBBBB" FontFamily="Segoe UI Light" FontSize="28" TextAlignment="Center"/>
+            <ListView x:Name="pelaajatList" Margin="0,0" Width="260" Height="360" HorizontalAlignment="Center"></ListView>
+        </StackPanel>
+        <Button x:Name="skipButton" Grid.Column="3" Grid.Row="2" Content="SKIPPAA" HorizontalAlignment="Left" Width="190" Height="50" Margin="-40,0,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB" Click="skipButton_Click" Visibility="Collapsed" Background="#4C000000"></Button>
+        <Button x:Name="breakButton" Grid.Column="3" Grid.Row="2" Content="KÄYTÄ TAUKO" HorizontalAlignment="Right" Width="190" Height="50" Margin="40,0" Click="breakButton_Click" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB" Visibility="Collapsed" Background="#4C000000"/>
         <TextBlock x:Name="onkotauko" Visibility="Collapsed" HorizontalAlignment="Left" Margin="200,351,0,0" TextWrapping="Wrap" Text="Tauko käytettävissä" VerticalAlignment="Top" Height="29"/>
         <TextBlock x:Name="kaytatauko" HorizontalAlignment="Left" Margin="336,484,0,0" TextWrapping="Wrap" Text="Käytä tauko" VerticalAlignment="Top" Tapped="kaytatauko_Tapped"/>
-        
-        
-        
-        
-        <Image x:Name="hitler" Grid.Column="1" Grid.Row="0" Visibility="Collapsed" Source="Assets/Images/hitler.jpg" Height="80" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-
+        <Image x:Name="hitler" Grid.Column="1" Grid.Row="1" Visibility="Collapsed" Source="Assets/Images/hitler.jpg" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <StackPanel>
+            <StackPanel.Resources>
+                <Storyboard x:Name="hitlerStoryboard">
+                    <DoubleAnimation Storyboard.TargetName="hitler"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0"
+                                     To="1"
+                                     Duration="0:0:4.6"
+                                     AutoReverse="True">
+                        <DoubleAnimation.EasingFunction>
+                            <ExponentialEase Exponent="4"/>
+                        </DoubleAnimation.EasingFunction>
+                    </DoubleAnimation>
+                </Storyboard>
+            </StackPanel.Resources>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#F2F0F8FF" Width="1200" Height="570" BorderBrush="#FFBBBBBB" BorderThickness="2" CornerRadius="10" Margin="0,0,0,0" x:Name="saannotStack" Visibility="Collapsed">
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,20,0,0" Width="120" Height="50" Text="Säännöt" Foreground="#FFBBBBBB" FontFamily="Segoe UI Light" FontSize="28" TextAlignment="Center"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="580"/>
+                    <ColumnDefinition Width="580"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Height="400" TextWrapping="Wrap" Margin="30,0,0,0" xml:space="preserve" FontSize="18">Ässä - Vesiputous. Kortin saanut alkaa juomaan, muut tekevät samoin myötäpäiväisessä järjestyksessä. Juomisen saa lopettaa vasta kun järjestyksessä edellinen lopettaa.
+2 - Juo viisi huikkaa juomastasi.
+3 - Anna viisi. Valitsemasi pelaaja juo viisi huikkaa juomastaan.
+4, 5 - Hitler. Jokaisen pelaajan on hailattava, ja hitain hailaaja joutuu juomaan viisi huikkaa juomastaan.
+6 - 1, 2, 3... Se joka saa kortin juo yhden huikan, vieressä oleva 2, seuraava 3 huikkaa ja niin edelleen viimeisen pelaajaan asti.
+7 - Tauko. Pelaaja saa käyttää taukokortin haluttuna ajankohtana. Pelistä ei saa poistua ilman taukokorttia.
+8 - Kategoria. Kortin saanut saa päättää kategorian. Esim. automerkit; kortin saanut sanoo Volvo, viereinen pelaaja sanoo Opel jne... Se joka ei osaa sanoa noin 5 sekunnin sisällä jotain merkkiä tai sanoo jo sanotun merkin, joutuu juomaan 5 huikkaa.
+                </TextBlock>
+                <TextBlock Grid.Column="1" Height="390" TextWrapping="Wrap" Margin="20,0,0,0" xml:space="preserve" FontSize="18">9 - Sääntö. Kortin saanut pelaaja päättää, mikä sääntö peliin tulee. Esim. ei saa kiroilla pöydässä tai pitää juoda vain vasemmalla kädellä. Rikkeen tehnyt joutuu juomaan 5 huikkaa. Seuraava sääntö kumoaa edellisen.
+10 - Kysymysmestari. Kortin saanut saa olla kysymysmestarina kunnes toinen pelaaja nostaa kysymysmestari-kortin. Aina kun muut vastaavat kysymysmestarin kysymyksiin, he juovat viisi huikkaa juomastaan.
+Jätkä - Kortin saanut pelaaja aloittaa tarinan sanomalla yhden sanan, esim. "Jätkä". Viereinen pelaaja jatkaa tarinaa sanomalla "Jätkä meni" jne. Tarina jatkuu niin kauan kunnes jonkun kohdalla pelaaja ei enää muista tarinan sanoja tai järjestystä ja juo viisi huikkaa juomastaan.
+Akka - Huora. Kortin saanut pelaaja voi antaa sen valitsemalleen pelaajalle. Kyseinen pelaaja joutuu juomaan aina kun kortin saanut juo.
+Kuningas - Kuningashuikka. Jokainen pelaaja antaa huikan juomastaan kortin nostaneelle pelaajalle.
+                </TextBlock>
+            </Grid>
+            <Button x:Name="closeRules" Content="Sulje" HorizontalAlignment="Center" Width="190" Height="50" Margin="0,30,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="AliceBlue" Background="#FFBBBBBB" Click="closeRules_Click"></Button>
+        </StackPanel>
+        <MediaElement x:Name="hitlerSound" Source="assets/hitlerSound.mp3" AutoPlay="False" MediaEnded="hitlerSound_MediaEnded"></MediaElement>
     </Grid>
-
-
-
 </Page>

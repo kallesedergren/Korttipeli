@@ -24,6 +24,7 @@ namespace Harjoitustyö
     /// </summary>
     public sealed partial class Etusivu : Page
     {
+        // alustetaan pelaajalista
         private Players players = new Players();
 
         public Etusivu()
@@ -34,6 +35,7 @@ namespace Harjoitustyö
             ApplicationView.PreferredLaunchViewSize = new Size(1280, 720);
         }
 
+        // päivitetään pelaajalista sitä mukaa kun pelaajia lisätään
         private void updateList()
         {
             pelaajatList.ItemsSource = null;
@@ -50,14 +52,16 @@ namespace Harjoitustyö
             pelaajatList.ItemsSource = blocks;
         }
 
+        // jos neljä pelaajaa syötetty peli alkaa aloitus-painikkeesta
         private void aloitusButton_Click(object sender, RoutedEventArgs e)
         {
-            if(players.PlayersList.Count >= 2)
+            if(players.PlayersList.Count >= 4)
             {
                 this.Frame.Navigate(typeof(MainPage), players);
             }
         }
 
+        // lisätään syötetty pelaaja
         private void lisaaButton_Click(object sender, RoutedEventArgs e)
         {
             string name = nimiBox.Text;
@@ -70,6 +74,7 @@ namespace Harjoitustyö
             }
         }
 
+        // tyhjennetään pelaajalista
         private void tyhjennaButton_Click(object sender, RoutedEventArgs e)
         {
             players.resetList();

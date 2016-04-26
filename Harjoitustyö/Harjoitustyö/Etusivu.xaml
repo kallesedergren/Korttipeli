@@ -31,9 +31,9 @@
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Margin="0,20,0,20" Background="#33636363" Width="300" BorderBrush="#FFBBBBBB" BorderThickness="2" CornerRadius="10">
             <TextBox x:Name="nimiBox" HorizontalAlignment="center" Width="190" Margin="0,30,0,0" PlaceholderText="Nimi" FontSize="24"/>
             <Button x:Name="lisaaButton" Content="LISÄÄ" HorizontalAlignment="center" Width="190" Height="50" Margin="0,30,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB" Click="lisaaButton_Click" Background="#4C000000"></Button>
-            <Button x:Name="tyhjennaButton" Content="TYHJENNA" HorizontalAlignment="center" Width="190" Height="50" Margin="0,30,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB" Click="tyhjennaButton_Click" Background="#4C000000"></Button>
+            <Button x:Name="tyhjennaButton" Content="TYHJENNÄ" HorizontalAlignment="center" Width="190" Height="50" Margin="0,30,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB" Click="tyhjennaButton_Click" Background="#4C000000"></Button>
             <Button x:Name="aloitusButton" Content="ALOITA" HorizontalAlignment="center" Width="190" Height="50" Margin="0,30,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB" Click="aloitusButton_Click" Background="#4C000000"></Button>
-            <TextBlock Text="Lisää pelaajat (max 8) ja paina aloita." Width="190" Margin="0,20,0,0" FontSize="24" TextWrapping="Wrap" Foreground="#FFBBBBBB" FontFamily="Segoe UI Light"/>
+            <TextBlock Text="Lisää pelaajat (min 4, max 8) ja paina aloita." Width="190" Margin="0,20,0,0" FontSize="24" TextWrapping="Wrap" Foreground="#FFBBBBBB" FontFamily="Segoe UI Light"/>
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Margin="30,20" Background="#33636363" Width="300" BorderBrush="#FFBBBBBB" BorderThickness="2" CornerRadius="10">
             <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,20,0,0" Width="120" Height="50" Text="Pelaajat" Foreground="#FFBBBBBB" FontFamily="Segoe UI Light" FontSize="28" TextAlignment="Center"/>

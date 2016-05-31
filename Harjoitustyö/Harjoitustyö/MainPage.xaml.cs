@@ -42,6 +42,9 @@ namespace Harjoitustyö
             ApplicationView.PreferredLaunchViewSize = new Size(1280, 720);
             // sekoitetaan pakka
             deck.Shuffle();
+            Size windowSize = new Size(1280, 720);
+            ApplicationView.PreferredLaunchViewSize = windowSize;
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(windowSize);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

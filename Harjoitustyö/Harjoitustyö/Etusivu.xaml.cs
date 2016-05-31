@@ -32,7 +32,9 @@ namespace Harjoitustyö
             this.InitializeComponent();
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             // Ikkunan koko
-            ApplicationView.PreferredLaunchViewSize = new Size(1280, 720);
+            Size windowSize = new Size(1280, 720);
+            ApplicationView.PreferredLaunchViewSize = windowSize;
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(windowSize);
         }
 
         // päivitetään pelaajalista sitä mukaa kun pelaajia lisätään

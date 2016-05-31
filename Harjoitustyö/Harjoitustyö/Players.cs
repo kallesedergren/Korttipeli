@@ -11,19 +11,19 @@ namespace Harjoitustyö
         private List<Player> playersList = new List<Player>();
         private readonly int MAX_PLAYERS = 8;
 
-        // ominaisuus joka palauttaa pelaajalistan
+        // Ominaisuus joka palauttaa pelaajalistan
         public List<Player> PlayersList
         {
             get { return playersList; }
         }
 
-        // tyhjentää pelaajalistan
+        // Tyhjentää pelaajalistan
         public void resetList()
         {
             playersList = new List<Player>();
         }
 
-        // lisää pelaajan, jos pelaajamäärä ei maksimissa
+        // Lisää pelaajan, jos pelaajamäärä ei maksimissa
         public void AddPlayer(Player player)
         {
             if(playersList.Count() < MAX_PLAYERS)
@@ -32,7 +32,7 @@ namespace Harjoitustyö
             }
         }
 
-        // nollataan kaikkien pelaajien statukset
+        // Nollataan kaikkien pelaajien statukset
         public void resetStatus()
         {
             resetKysymysmestari();
@@ -40,7 +40,7 @@ namespace Harjoitustyö
             resetHuora();
         }
 
-        // etsitään pelaaja nimen perusteella
+        // Etsitään pelaaja nimen perusteella
         public Player getByName(string name)
         {
             foreach(Player p in playersList)
@@ -53,7 +53,7 @@ namespace Harjoitustyö
             return null;
         }
 
-        // poistetaan pelaajilta kysymysmestari status
+        // Poistetaan pelaajilta kysymysmestari status
         public void resetKysymysmestari()
         {
             foreach (Player p in playersList)
@@ -62,7 +62,7 @@ namespace Harjoitustyö
             }
         }
 
-        // poistetaan tauot pelaajilta
+        // Poistetaan tauot pelaajilta
         public void resetTauot()
         {
             foreach (Player p in playersList)
@@ -72,7 +72,7 @@ namespace Harjoitustyö
             }
         }
 
-        // tyhjennetään huoralista
+        // Tyhjennetään huoralista
         public void resetHuora()
         {
             foreach (Player p in playersList)

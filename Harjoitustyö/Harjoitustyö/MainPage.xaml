@@ -22,7 +22,7 @@
             <RowDefinition Height="500"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <Image x:Name="cardsUp" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Height="450" Width="300" />
         <TextBlock x:Name="rule" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" UseLayoutRounding="False" Width="400" d:LayoutRounding="Auto" Height="65" TextAlignment="Center" FontFamily="Segoe UI Light" FontSize="28" Foreground="#FFBBBBBB" FontWeight="SemiLight">
         </TextBlock>
@@ -33,7 +33,6 @@
             <Button x:Name="annaHuora" Content="ANNA" HorizontalAlignment="Center" Width="190" Height="50" Margin="0,10,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="AliceBlue" Click="annaHuora_Click" Background="#FFBBBBBB" BorderBrush="#FFBBBBBB"></Button>
         </StackPanel>
         <Button x:Name="backButton" Grid.Column="0" Grid.Row="0" Content="PUHDISTUS" HorizontalAlignment="Left" Width="190" Height="50" Margin="40,0,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB" Background="#66000000" Click="backButton_Click"></Button>
-        
         <Button x:Name="rules" Grid.Column="2" Grid.Row="0" Content="SÄÄNNÖT" HorizontalAlignment="Left" Width="190" Height="50" Margin="-40,0,0,0" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB" Click="rules_Click" Background="#4C000000"></Button>
         <Button x:Name="reset" Grid.Column="2" Grid.Row="0" Content="UUSI KIERROS" HorizontalAlignment="Right" Width="190" Height="50" Margin="40,0" Click="reset_Click" FontFamily="Segoe UI Light" FontSize="26" Foreground="#FFBBBBBB" Background="#4C000000"/>
         <TextBlock x:Name="vuorossa" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="0,10" Height="40" Width="220" FontFamily="Segoe UI Light" FontSize="20" Foreground="#FFBBBBBB" TextAlignment="Center"/>

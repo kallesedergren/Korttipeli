@@ -8,47 +8,47 @@ namespace Harjoitustyö
 {
     public class Player
     {
-        // luokan muuttujat 
+        // Luokan muuttujat 
         public string Name { get; set; }
         public bool kysymysMestari = false;
         public bool tauolla = false;
-        // tehdään lista "huorista"
+        // Tehdään lista "huorista"
         public List<Player> huorat = new List<Player>();
         private int tauot = 0;
 
-        // ominaisuus, joka kertoo montako taukoa pelaajalla on
+        // Ominaisuus, joka kertoo montako taukoa pelaajalla on
         public int Tauot
         {
             get { return tauot; }
             set { tauot = value; }
         }
 
-        // konstruktori, asetetaan nimi pelaajalle
+        // Konstruktori, asetetaan nimi pelaajalle
         public Player(string name)
         {
             Name = name;
         }
         
-        // lisätään pelaajalle tauko
+        // Lisätään pelaajalle tauko
         public void addTauko()
         {
             tauot++;
         }
 
-        // vähennetään yksi tauko ja asetetaan pelaaja tauolle
+        // Vähennetään yksi tauko ja asetetaan pelaaja tauolle
         public void substractTauko()
         {
             tauolla = true;
             tauot--;
         }
 
-        // palauttaa pelaajan tiedot
+        // Palauttaa pelaajan tiedot
         public override string ToString()
         {
             return Name + getStatus();
         }
 
-        // palauttaa pelaajan status, eli onko pelaaja kysymysmestari, onko "huoria" tahi onko taukoja käytettävissä
+        // Palauttaa pelaajan status, eli onko pelaaja kysymysmestari, onko "huoria" tai onko taukoja käytettävissä
         public string getStatus()
         {
             string status = kysymysMestari ? " K" : "";

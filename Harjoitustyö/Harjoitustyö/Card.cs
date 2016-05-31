@@ -8,24 +8,24 @@ namespace Harjoitustyö
 {
     public class Card
     {
-
-        // luokan muuttujat
+        // Luokan muuttujat
         private string Suit;
         private string Value;
 
-        // konstruktori
+        // Konstruktori
         public Card(string values, string suits)
         {
             Value = values;
             Suit = suits;
         }
 
-        // luokan metodi joka palauttaa kortin maan
+        // Luokan metodi joka palauttaa kortin maan
         public string getSuit()
         {
             return Suit;
         }
-        // luokan metodi joka palauttaa kortin arvon
+
+        // Luokan metodi joka palauttaa kortin arvon
         public string getValue()
         {
             return Value;

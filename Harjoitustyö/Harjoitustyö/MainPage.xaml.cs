@@ -25,13 +25,13 @@ namespace Harjoitustyö
     /// </summary>
     public partial class MainPage : Page
     {
-        // alustetaan pakka
+        // Alustetaan pakka
         Deck deck = new Deck();
-        // alustetaan pelaajalista
+        // Alustetaan pelaajalista
         Players players;
-        // muuttuja, joka kertoo kenen vuoro on
+        // Muuttuja, joka kertoo kenen vuoro on
         int turn = 0;
-        // soiko musiikki
+        // Soiko musiikki
         private bool mediaPlaying = false;
 
         public MainPage()
@@ -40,7 +40,7 @@ namespace Harjoitustyö
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             // Ikkunan koko
             ApplicationView.PreferredLaunchViewSize = new Size(1280, 720);
-            // sekoitetaan pakka
+            // Sekoitetaan pakka
             deck.Shuffle();
             Size windowSize = new Size(1280, 720);
             ApplicationView.PreferredLaunchViewSize = windowSize;
@@ -49,7 +49,7 @@ namespace Harjoitustyö
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            // pelisivulle siirryttäessä haetaan pelaajalista
+            // Pelisivulle siirryttäessä haetaan pelaajalista
             base.OnNavigatedTo(e);
             players = (Players)e.Parameter;
             vuorossa.Text = "Vuorossa: " + players.PlayersList.ElementAt(turn).Name;
@@ -58,21 +58,21 @@ namespace Harjoitustyö
 
         public void image_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            // jos media soi, ei tehdä mitään
+            // Jos media soi, ei tehdä mitään
             if (mediaPlaying) return;
 
-            // jos tauolla oleva pelaaja painaa korttia, hän palaa peliin
+            // Jos tauolla oleva pelaaja painaa korttia, hän palaa peliin
             if (players.PlayersList.ElementAt(turn).tauolla)
             {
                 players.PlayersList.ElementAt(turn).tauolla = false;
             }
 
-            // nostetaan kortti
+            // Nostetaan kortti
             Card card = deck.dealCard();
 
             try
             {
-                // haetaan korttien kuvat ja säännöt
+                // Haetaan korttien kuvat ja säännöt
                 string filePath = @"Assets/Images/" + card.getValue() + "_of_" + card.getSuit() + ".png";
                 string rulePath = @"Assets/Rules/" + card.getValue() + ".txt";
                 string readRules = File.ReadAllText(rulePath);
@@ -80,7 +80,7 @@ namespace Harjoitustyö
                 cardsUp.Source = new BitmapImage(new Uri(this.BaseUri, filePath));
                 rule.Text = readRules;
 
-                // näytetään kuva, jos kortti on 4 tai 5
+                // Näytetään kuva, jos kortti on 4 tai 5
                 if (card.getValue().Equals("4") || card.getValue().Equals("5"))
                 {
                     hitler.Visibility = Visibility.Visible;
@@ -119,7 +119,7 @@ namespace Harjoitustyö
             }
         }
 
-        // kun pelaaja nostaa "huora"kortin, näytetään lista pelaajista, joilla kortti voidaan antaa
+        // Kun pelaaja nostaa "huora"-kortin, näytetään lista pelaajista, joille kortti voidaan antaa
         private void updateHuoraList()
         {
             huoraList.ItemsSource = null;
@@ -136,7 +136,7 @@ namespace Harjoitustyö
                 }
             }
 
-            // jos ei voi antaa "huoraa", "ANNA" napin sijasta "SULJE" nappi
+            // Jos ei voi antaa "huoraa", "ANNA" napin sijasta "SULJE" nappi
             if (!huorat.Any())
             {
                 annaHuora.Content = "SULJE";
@@ -146,11 +146,11 @@ namespace Harjoitustyö
                 annaHuora.Content = "ANNA";
             }
 
-            // näytetään "huorat" ListViewissä
+            // Näytetään "huorat" ListViewissä
             huoraList.ItemsSource = huorat;
         }
 
-        // tarkistetaan onko pelaaja tauolla
+        // Tarkistetaan onko pelaaja tauolla
         private void checkBreak()
         {
             Player p = players.PlayersList.ElementAt(turn);
@@ -170,7 +170,7 @@ namespace Harjoitustyö
             }
         }
 
-        // vuoro vaihtuu, jos pakka ei ole tyhjä
+        // Vuoro vaihtuu, jos pakka ei ole tyhjä
         private void nextTurn()
         {
             if (deck.isEmpty()) turn++;
@@ -180,7 +180,7 @@ namespace Harjoitustyö
             checkBreak();
         }
 
-        // aloitetaan uusi kierros
+        // Aloitetaan uusi kierros
         private void reset_Click(object sender, RoutedEventArgs e)
         {
             deck.Shuffle();
@@ -190,11 +190,11 @@ namespace Harjoitustyö
             updateList();
         }
         
-        // asetetaan pelaajat ListViewiin
+        // Asetetaan pelaajat ListViewiin
         private void updateList()
         {
             pelaajatList.ItemsSource = null;
-            // luodaan jokaiselle pelaajalle oma TextBlock listaan
+            // Luodaan jokaiselle pelaajalle oma TextBlock listaan
             List<TextBlock> blocks = new List<TextBlock>();
             foreach (Player p in players.PlayersList)
             {
@@ -205,12 +205,12 @@ namespace Harjoitustyö
                 blocks.Add(b);
             }
 
-            // korostetaan vuorossa oleva pelaaja
+            // Korostetaan vuorossa oleva pelaaja
             pelaajatList.ItemsSource = blocks;
             pelaajatList.SelectedIndex = turn;
         }
 
-        // vähennetään pelaajalta yksi tauko ja asetetaan pelaaja tauolle
+        // Vähennetään pelaajalta yksi tauko ja asetetaan pelaaja tauolle
         private void breakButton_Click(object sender, RoutedEventArgs e)
         {
             players.PlayersList.ElementAt(turn).substractTauko();
@@ -225,7 +225,7 @@ namespace Harjoitustyö
         
         private void annaHuora_Click(object sender, RoutedEventArgs e)
         {
-            // tarkistaan onko listassa yhtään pelaajaa jollekka "huoran" voi antaa
+            // Tarkistaan onko listassa yhtään pelaajaa jolle "huoran" voi antaa
             if (huoraList.Items.Any())
             {
                 if (huoraList.SelectedItem == null) return;
